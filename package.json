@@ -1,0 +1,32 @@
+{
+  "name": "my-monorepo",
+  "private": true,
+  "scripts": {
+    "dev:vue-demo1": "vite packages/admin-data",
+    "dev:vue-demo2": "vite packages/vite-admin",
+    "dev:react-demo3": "vite packages/admin-react",
+    "dev": "pnpm run --parallel dev",
+    "clean": "rm -rf pnpm-lock.yaml && find . -name 'node_modules' -type d -exec rm -rf '{}' +"
+  },
+  "workspaces": [
+    "packages/admin-data",
+    "packages/vite-admin",
+    "packages/admin-react"
+  ],
+  "dependencies": {
+    "axios": "^1.4.0",
+    "postcss": "^8.4.24",
+    "postcss-import": "^15.1.0",
+    "postcss-nesting": "^11.2.2",
+    "postcss-preset-env": "^8.4.1",
+    "tailwindcss": "^3.3.2",
+    "vue": "^3.2.47",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vue-tsc": "^1.4.2"
+  }
+}

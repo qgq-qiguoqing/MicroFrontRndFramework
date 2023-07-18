@@ -1,0 +1,65 @@
+.page {
+  height: 100%;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom {
+  position: sticky;
+  height: 65px;
+  background-color: white;
+  bottom: 15px;
+  margin: 0 20px;
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f3f3f3;
+  z-index: 99;
+}
+
+.wrapper {
+  flex: none;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f3f3f3;
+}
+
+.top {
+  background-color: #f3f3f3;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 100;
+  font-size: 16px;
+}
+
+.pageBody {
+  /* padding: 15px 20px 0 20px; */
+  background-color: white;
+  border-radius: 8px 8px 0 0;
+  /* margin: 0 20px 15px 20px; */
+  margin-bottom: 15px;
+  flex: 1;
+  min-height: 120px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.noBottom {
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.gutter {
+  margin-top: 20px;
+}
