@@ -41,9 +41,11 @@ const router = useRouter()
 const route = useRoute()
 let tabs = ref<any[]>([])
 tabs.value = JSON.parse(window.localStorage.getItem('tabs') || '[]')
+// 不管是子应用和主应用，统一使用这个跳转方法，记录跳转记录
 function onGo(v: string) {
   router.push(v)
 }
+// tab栏的操作
 function dealTabs(v: string, parent?: string) {
   let urls = tabs.value.map((e: any) => e.url)
   let n = urls.indexOf(v)
@@ -73,6 +75,7 @@ function dealTabs(v: string, parent?: string) {
     setTabs(n)
   }
 }
+
 router.afterEach((v) => {
   if (!v.params.pathName) {
     if (v.query.parent || v.params.parent) {
@@ -83,6 +86,7 @@ router.afterEach((v) => {
     }
   }
 })
+
 function onTab(v: any, i: number) {
   router.push(v.url)
   setTabs(i)

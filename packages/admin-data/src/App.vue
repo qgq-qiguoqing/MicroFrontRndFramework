@@ -18,13 +18,10 @@ import { routes } from '@/router/index'
 import { navigateToPage } from './utils/index'
 const router = useRouter()
 const route = useRoute()
+// 通过keepAlive包裹的组件 使用 include来控制页面的缓存和删除
 const include = ref<Array<string>>([])
+
 const onGo = () => {
-  // if (v == 1) {
-  //   router.replace('/pageOne')
-  // } else {
-  //   router.replace('/pageTwo')
-  // }
   navigateToPage('/pageThree')
 }
 
@@ -48,6 +45,7 @@ function onGoPage(v: string, query: any) {
   }
 }
 nextTick(() => {
+  // 监听父级传过来的操作
   window.top?.addEventListener('navigateToOther', (e: any) => {
     if (e && e.detail) {
       if (e.detail.baseUrl && e.detail.baseUrl == 'vuePackage') {
@@ -59,6 +57,7 @@ nextTick(() => {
       }
     }
   })
+  // 页面关闭清除缓存
   window.top?.addEventListener('closeRoute', (e: any) => {
     if (e && e.detail) {
       if (e.detail.baseUrl && e.detail.baseUrl == 'vuePackage') {
