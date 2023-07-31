@@ -132,7 +132,7 @@ router.beforeEach((v) => {
 // 监听页面的尺寸变化动态修改iframe的宽高
 window.addEventListener('resize', () => {
   // nextTick(() => {
-  if (rootBox.value.offsetWidth) {
+  if (rootBox.value && rootBox.value.offsetWidth) {
     let width = rootBox.value.offsetWidth
     let height = rootBox.value.offsetHeight
     let iframeBox = document.getElementById('iframeBox')

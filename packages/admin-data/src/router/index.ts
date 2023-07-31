@@ -43,6 +43,7 @@ export const router = createRouter({
     routes
 })
 router.beforeEach((to) => {
+
     let paths = routes.map(it => it.path)
     if (!paths.includes(to.path)) {
         return false
