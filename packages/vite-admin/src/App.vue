@@ -12,6 +12,7 @@
       <div
         className="flex items-center shadow-md overflow-x-auto w-full "
         style="margin: 0; padding: 10px"
+        v-if="tabs.length"
       >
         <el-tag
           class="mr-2 cursor-pointer"

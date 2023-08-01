@@ -46,7 +46,11 @@ export function keepRoute() {
         })
         watch(route, (v) => {
             if (v) {
-                navigateToPage(v.path, v.query)
+                let tabs: any[] = JSON.parse(window.localStorage.getItem('tabs') || "[]")
+                let urls = tabs.map(it => it.url)
+                if (!urls.includes('/vuePackage' + v.path)) {
+                    navigateToPage(v.path, v.query)
+                }
             }
         })
     }

@@ -17,7 +17,9 @@ import { keepRoute } from './utils/dealRouter'
 
 const { include, addEvent } = keepRoute()
 const onGo = () => {
-  navigateToPage('/pageThree')
+  navigateToPage('/pageThree', {
+    id: '123',
+  })
 }
 addEvent()
 </script>

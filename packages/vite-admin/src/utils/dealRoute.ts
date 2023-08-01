@@ -47,7 +47,7 @@ export function dealRoute() {
         }
     }
     function onTab(v: any, i: number) {
-        router.push(v.url)
+        router.push({ path: v.url, query: v.query })
         setTabs(i)
     }
     function onClose(v: string, i: number) {
@@ -215,7 +215,7 @@ export function dealIframe(
             navigateToPage(
                 p,
                 actions ? '/' + v + '/' + actions : '/' + v,
-                route.query
+                -  route.query
             )
         }
     }
@@ -223,7 +223,7 @@ export function dealIframe(
 
     function addWatch() {
         nextTick(() => {
-            router.beforeEach(async (v) => {
+            router.afterEach(async (v) => {
                 let p = v.params.package as string
                 let iframeBox = document.getElementById(parentDom)
                 let iframeS = iframeBox?.getElementsByTagName('iframe')
